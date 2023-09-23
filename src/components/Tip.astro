@@ -1,0 +1,53 @@
+---
+
+---
+
+<section>
+    <label for="tip">Select Tip %</label>
+    <div class="grid">
+        <button class="btn">5%</button>
+        <button class="btn">10%</button>
+        <button class="btn">15%</button>
+        <button class="btn">25%</button>
+        <button class="btn">50%</button>
+        <input class="custom" type="number" placeholder="Custom" />
+    </div>
+</section>
+
+<style>
+    section {
+        margin-block: 1.5rem;
+        width: 100%;
+    }
+
+    label {
+        margin-bottom: 0.5rem;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    button {
+        background-color: var(--very-dark-cyan);
+        color: var(--very-light-cyan);
+        max-width: 100%;
+    }
+
+    button:hover {
+        color: var(--very-dark-cyan);
+        background-color: var(--light-cyan);
+    }
+
+    .active {
+        background-color: var(--cyan-clr);
+        color: var(--very-dark-cyan);
+    }
+
+    @media (min-width: 768px) {
+        .grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>

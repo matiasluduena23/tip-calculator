@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+const { label, iconSrc, class: className } = Astro.props;
+---
+
+<div>
+    <label for="bill">{label}</label>
+    <input
+        class={className}
+        type="number"
+        name="number"
+        id="number"
+        placeholder="0"
+    />
+    <Image src={iconSrc} alt="logo dolar" />
+</div>
+
+<style>
+    div {
+        position: relative;
+    }
+
+    div img {
+        position: absolute;
+        left: 16px;
+        bottom: 15px;
+    }
+
+    input:focus {
+        outline: none !important;
+        border: 2px solid var(--cyan-clr);
+    }
+</style>

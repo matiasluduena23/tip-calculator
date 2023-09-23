@@ -1,0 +1,69 @@
+---
+
+---
+
+<section>
+    <div class="flex">
+        <div class="text">
+            <p>Tip Amount</p>
+            <p>/ person</p>
+        </div>
+        <p class="result">$<span class="tip-amount">0</span></p>
+    </div>
+    <div class="flex">
+        <div class="text">
+            <p>Total</p>
+            <p>/ person</p>
+        </div>
+        <p class="result">$<span class="total">0</span></p>
+    </div>
+    <button>Reset</button>
+</section>
+
+<style>
+    section {
+        background-color: var(--very-dark-cyan);
+        padding: 1.5rem;
+        margin: 0.5rem;
+        border-radius: 15px;
+    }
+
+    section > div {
+        margin-top: 1rem;
+    }
+
+    .text p:first-child {
+        color: var(--very-light-cyan);
+        font-size: 16px;
+    }
+
+    .text p:last-child {
+        color: var(--gray-cyan);
+        font-size: 14px;
+    }
+
+    .result {
+        color: var(--cyan-clr);
+    }
+    .result span {
+        font-size: 2rem;
+    }
+
+    button {
+        margin-top: 2rem;
+        background-color: var(--cyan-clr);
+        color: var(--very-dark-cyan);
+        text-transform: uppercase;
+    }
+
+    button:hover {
+        color: var(--very-dark-cyan);
+        background-color: var(--light-cyan);
+    }
+
+    @media (min-width: 768px) {
+        button {
+            margin-top: 8rem;
+        }
+    }
+</style>

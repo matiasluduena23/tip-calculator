@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import Input from './Input.astro';
+import Tip from './Tip.astro';
+import iconDolar from '../assets/icon-dollar.svg';
+import iconPeople from '../assets/icon-person.svg';
+---
+
+<section>
+    <Input label="Bill" iconSrc={iconDolar} class="bill" />
+    <Tip />
+    <Input label="Number of People" iconSrc={iconPeople} class="people" />
+</section>
+
+<style>
+    section {
+        background-color: white;
+        padding: 1.3rem;
+        border-radius: 15px;
+    }
+</style>
