@@ -5,6 +5,7 @@ const { label, iconSrc, class: className } = Astro.props;
 
 <div>
     <label for="bill">{label}</label>
+    <label for="error" class="error">Can't be zero</label>
     <input
         class={className}
         type="number"
@@ -24,6 +25,14 @@ const { label, iconSrc, class: className } = Astro.props;
         position: absolute;
         left: 16px;
         bottom: 15px;
+    }
+
+    .error {
+        position: absolute;
+        color: rgb(249, 95, 95);
+        right: 4px;
+        top: 0px;
+        visibility: hidden;
     }
 
     input:focus {
