@@ -7,7 +7,7 @@ const { label, iconSrc, class: className } = Astro.props;
     <label for="bill">{label}</label>
     <label for="error" class="error">Can't be zero</label>
     <input
-        class={className}
+        class=`${className} input`
         type="number"
         name="number"
         id="number"
@@ -38,5 +38,9 @@ const { label, iconSrc, class: className } = Astro.props;
     input:focus {
         outline: none !important;
         border: 2px solid var(--cyan-clr);
+    }
+
+    .errorInput {
+        border: 2px solid rgb(249, 95, 95);
     }
 </style>
