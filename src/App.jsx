@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "./components/Input";
-import Button from "./components/Button";
+import Result from "./components/Result";
+import GridButton from "./components/GridButton";
+import styles from "./style/app.module.css";
+import iconDollar from "./assets/icon-dollar.svg";
+import iconPerson from "./assets/icon-person.svg";
 
 function App() {
   const [totalTip, setTotaltip] = useState();
@@ -14,7 +18,6 @@ function App() {
     formState: { errors },
     watch,
     trigger,
-    reset,
   } = useForm();
 
   const handleClick = (data) => {
@@ -38,34 +41,36 @@ function App() {
     !percentage && (setpersonTip(), setTotaltip());
   };
 
-  const handleButtonClick = (even) => {
-    setPercentage(even.target.value);
-  };
-
   return (
-    <>
-      <form onSubmit={handleSubmit(handleClick)}>
-        <Input register={register} label="total" errors={errors} />
+    <main className={styles.main}>
+      <h1 className={styles.title}></h1>
+      <div className={styles.grid}>
+        <form onSubmit={handleSubmit(handleClick)}>
+          <Input
+            register={register}
+            name="total"
+            label="Bill"
+            errors={errors}
+            iconUrl={iconDollar}
+          />
 
-        <Button value={5} handleClick={handleButtonClick} />
-        <Button value={10} handleClick={handleButtonClick} />
-        <Button value={15} handleClick={handleButtonClick} />
-        <Button value={25} handleClick={handleButtonClick} />
-        <Button value={50} handleClick={handleButtonClick} />
+          <GridButton
+            setPercentage={setPercentage}
+            handleCuston={handleCuston}
+          />
 
-        <input
-          type="number"
-          name=""
-          placeholder="custom"
-          onChange={handleCuston}
-        />
+          <Input
+            register={register}
+            name="people"
+            label="Number of People"
+            errors={errors}
+            iconUrl={iconPerson}
+          />
+        </form>
 
-        <Input register={register} label="people" errors={errors} />
-      </form>
-
-      <p>total tip: {totalTip ? totalTip : 0} </p>
-      <p>person tip: {personTip ? personTip : 0} </p>
-    </>
+        <Result totalTip={totalTip} personTip={personTip} />
+      </div>
+    </main>
   );
 }
 

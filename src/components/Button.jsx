@@ -1,7 +1,12 @@
-export default function Button({ value, handleClick }) {
+export default function Button({ value, handleClick, isClicked }) {
   return (
     <div>
-      <button value={value} type="submit" onClick={handleClick}>
+      <button
+        className={isClicked === value && "active"}
+        value={value}
+        type="submit"
+        onClick={handleClick}
+      >
         {value}%
       </button>
     </div>

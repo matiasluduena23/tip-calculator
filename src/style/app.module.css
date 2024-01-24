@@ -1,0 +1,22 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  gap: 3rem;
+  background-color: white;
+  padding: 2rem;
+  max-width: 400px;
+  margin-inline: auto;
+  border-radius: 20px;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    flex-direction: row;
+    max-width: 900px;
+  }
+
+  .grid > * {
+    flex: 1;
+  }
+}

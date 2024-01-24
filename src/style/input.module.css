@@ -1,0 +1,21 @@
+.wrapInput {
+  position: relative;
+}
+
+.img {
+  position: absolute;
+  top: 12px;
+  left: 18px;
+}
+
+.errorInput {
+  border: 2px solid tomato;
+}
+
+.errorSpan {
+  position: absolute;
+  color: tomato;
+  font-size: 14px;
+  left: 2px;
+  bottom: -20px;
+}

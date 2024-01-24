@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cyan: hsl(172, 67%, 45%);
+  --dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayis-cyan: hsl(186, 14%, 43%);
+  --gayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  display: grid;
+  align-content: center;
+  min-height: 100vh;
+  background-color: var(--light-grayish-cyan);
+}
+
+input,
+button {
+  font-family: inherit;
+  padding: 0.3rem 1rem;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  background-color: hsl(189, 41%, 97%);
+  width: 100%;
+  border-radius: 5px;
+  color: hsl(183, 100%, 15%);
+}
+
+input:focus {
+  outline: none !important;
+  border: 2px solid var(--cyan);
+}
+
+button {
+  width: 100%;
+  background-color: var(--dark-cyan);
+  color: var(--very-light-grayish-cyan);
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: var(--light-grayish-cyan);
+}
+
+button.active {
+  background-color: var(--cyan);
+  color: var(--dark-cyan);
+}
+
+.lead-label {
+  color: hsl(186, 14%, 43%);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
