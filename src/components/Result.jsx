@@ -1,5 +1,9 @@
+import { useContext } from "react";
 import styles from "../style/result.module.css";
-export default function Result({ totalTip, personTip }) {
+import { TipContext } from "../context/TipContext";
+
+export default function Result() {
+  const { tip, personTip } = useContext(TipContext);
   return (
     <section className={styles.section}>
       <div className={styles.wrapSection}>
@@ -8,7 +12,7 @@ export default function Result({ totalTip, personTip }) {
             <p>Tip Amount</p>
             <p>/ person</p>
           </div>
-          <p className={styles.price}>${totalTip ? totalTip : 0}</p>
+          <p className={styles.price}>${tip ? tip : 0}</p>
         </div>
         <div className={styles.flex}>
           <div className={styles.wrapContent}>

@@ -1,13 +1,25 @@
 import Button from "./Button";
 import styles from "../style/gridButton.module.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TipContext } from "../context/TipContext";
 
-export default function GridButton({ setPercentage, handleCuston }) {
+export default function GridButton() {
   const [isClicked, setIsClicked] = useState(null);
+  const { setPercentage } = useContext(TipContext);
+
   const handleButtonClick = (even) => {
     setPercentage(even.target.value);
     setIsClicked(Number(even.target.value));
   };
+
+  // const handleCuston = (even) => {
+  //   trigger(["total", "people"]);
+  //   const percentage = even.target.value;
+  //   if (watch("total") || watch("people")) {
+  //     setValues(watch("total"), watch("people"), percentage);
+  //   }
+  //   !percentage && (setpersonTip(), setTotaltip());
+  // };
 
   return (
     <section className={styles.section}>
@@ -39,13 +51,7 @@ export default function GridButton({ setPercentage, handleCuston }) {
           isClicked={isClicked}
         />
 
-        <input
-          type="number"
-          name=""
-          dir="rtl"
-          placeholder="Custom"
-          onChange={handleCuston}
-        />
+        <input type="number" name="" dir="rtl" placeholder="Custom" />
       </div>
     </section>
   );

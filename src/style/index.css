@@ -58,6 +58,7 @@ button {
 
 button:hover {
   background-color: var(--light-grayish-cyan);
+  color: var(--dark-cyan);
 }
 
 button.active {
@@ -69,4 +70,16 @@ button.active {
   color: hsl(186, 14%, 43%);
   font-size: 18px;
   margin-bottom: 6px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
