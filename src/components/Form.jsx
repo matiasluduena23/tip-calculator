@@ -8,42 +8,40 @@ import { TipContext } from "../context/TipContext";
 import { useContext } from "react";
 
 export default function Form() {
-  const { setTip, setPersonTip, percentage } = useContext(TipContext);
+  const { percentage, setTotalTip, setPersonTip } = useContext(TipContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
     trigger,
-    setValue,
+    getValues,
   } = useForm();
 
-  const setValues = ({ total, people }) => {
-    const result = (Number(total) * Number(percentage)) / 100;
-    const amount = result / Number(people);
-    setTip(amount.toFixed(2));
-    setPersonTip((total / people + amount).toFixed(2));
+  const onSubmit = ({ bill, people }) => {
+    const totalBill = (Number(percentage) / 100) * bill;
+    setTotalTip((Number(totalBill) + Number(bill)) / people);
+    setPersonTip(Number(totalBill) / Number(people));
   };
 
   return (
-    <form onSubmit={handleSubmit((e) => setValues(e))}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Input
-        register={register}
-        name="total"
         label="Bill"
-        errors={errors}
         iconUrl={iconDollar}
+        name="bill"
+        register={register}
+        errors={errors}
       />
 
-      <GridButton />
+      <GridButton getValues={getValues} />
 
       <Input
-        register={register}
-        name="people"
         label="Number of People"
-        errors={errors}
         iconUrl={iconPerson}
+        name="people"
+        register={register}
+        errors={errors}
       />
     </form>
   );

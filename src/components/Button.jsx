@@ -1,8 +1,10 @@
-export default function Button({ value, handleClick, isClicked }) {
+export default function Button({ value, handleClick, isActive }) {
+  const activeClass = Number(isActive) === value ? "active" : undefined;
+
   return (
     <div>
       <button
-        className={isClicked === value ? "active" : undefined}
+        className={activeClass}
         value={value}
         type="submit"
         onClick={handleClick}

@@ -5,17 +5,23 @@ import { TipContext } from "./context/TipContext";
 import Form from "./components/Form";
 
 function App() {
-  const [tip, setTip] = useState(0);
-  const [personTip, setPersonTip] = useState(0);
-  const [percentage, setPercentage] = useState();
+  const [bill, setBill] = useState("");
+  const [people, setPeople] = useState("");
+  const [percentage, setPercentage] = useState(null);
+  const [personTip, setPersonTip] = useState(null);
+  const [totalTip, setTotalTip] = useState(null);
 
   return (
     <TipContext.Provider
       value={{
-        tip,
-        setTip,
+        bill,
+        setBill,
+        people,
+        setPeople,
         personTip,
         setPersonTip,
+        totalTip,
+        setTotalTip,
         percentage,
         setPercentage,
       }}

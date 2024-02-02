@@ -1,12 +1,22 @@
 import styles from "../style/input.module.css";
 
-export default function Input({ register, label, name, errors, iconUrl }) {
+export default function Input({
+  label,
+  iconUrl,
+  value,
+  handleChange,
+  name,
+  register,
+  errors,
+}) {
   return (
     <div>
       <p className="lead-label">{label}</p>
       <div className={styles.wrapInput}>
         <input
-          className={`${styles.input} ${errors[name] && styles.errorInput} `}
+          className={`${styles.input} ${
+            errors[name] ? styles.errorInput : undefined
+          }`}
           type="number"
           placeholder="0"
           dir="rtl"
@@ -14,11 +24,7 @@ export default function Input({ register, label, name, errors, iconUrl }) {
           {...register(name, {
             required: {
               value: true,
-              message: "Can´t be Zero",
-            },
-            pattern: {
-              value: /[0-9]/,
-              message: "Only numbers allow",
+              message: `Can't be zero`,
             },
           })}
         />
