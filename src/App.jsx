@@ -1,40 +1,44 @@
-import { useState } from "react";
-import Result from "./components/Result";
-import styles from "./style/app.module.css";
-import { TipContext } from "./context/TipContext";
-import Form from "./components/Form";
+import { useState } from 'react';
+import Result from './components/Result';
+import styles from './style/app.module.css';
+import { TipContext } from './context/TipContext';
+import Form from './components/Form';
 
 function App() {
-  const [bill, setBill] = useState("");
-  const [people, setPeople] = useState("");
-  const [percentage, setPercentage] = useState(null);
-  const [personTip, setPersonTip] = useState(null);
-  const [totalTip, setTotalTip] = useState(null);
+    const [percentage, setPercentage] = useState('');
+    const [personTip, setPersonTip] = useState('');
+    const [totalTip, setTotalTip] = useState('');
+    const [isActive, setIsActive] = useState('');
 
-  return (
-    <TipContext.Provider
-      value={{
-        bill,
-        setBill,
-        people,
-        setPeople,
-        personTip,
-        setPersonTip,
-        totalTip,
-        setTotalTip,
-        percentage,
-        setPercentage,
-      }}
-    >
-      <main className={styles.main}>
-        <h1 className={styles.title}></h1>
-        <div className={styles.grid}>
-          <Form />
-          <Result />
-        </div>
-      </main>
-    </TipContext.Provider>
-  );
+    const handleReset = () => {
+        setPercentage('');
+        setTotalTip('');
+        setPersonTip('');
+        setIsActive('');
+    };
+
+    return (
+        <TipContext.Provider
+            value={{
+                personTip,
+                setPersonTip,
+                totalTip,
+                setTotalTip,
+                percentage,
+                setPercentage,
+                isActive,
+                setIsActive,
+            }}
+        >
+            <main className={styles.main}>
+                <h1 className={styles.title}></h1>
+                <div className={styles.grid}>
+                    <Form />
+                    <Result handleReset={handleReset} />
+                </div>
+            </main>
+        </TipContext.Provider>
+    );
 }
 
 export default App;
