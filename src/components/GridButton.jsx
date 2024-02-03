@@ -2,10 +2,13 @@ import Button from './Button';
 import styles from '../style/gridButton.module.css';
 import { useContext, useState } from 'react';
 import { TipContext } from '../context/TipContext';
+import { useFormContext } from 'react-hook-form';
 
-export default function GridButton({ getValues, trigger }) {
+export default function GridButton() {
     const { setPercentage, setTotalTip, setPersonTip, setIsActive } =
         useContext(TipContext);
+    const { getValues, trigger } = useFormContext();
+
     const [custom, setCustom] = useState('');
 
     const handleClick = (e) => {

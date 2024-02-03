@@ -1,7 +1,6 @@
-import React from 'react';
 import iconDollar from '../assets/icon-dollar.svg';
 import iconPerson from '../assets/icon-person.svg';
-import { useForm } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import Input from './Input';
 import GridButton from './GridButton';
 import { TipContext } from '../context/TipContext';
@@ -9,14 +8,7 @@ import { useContext } from 'react';
 
 export default function Form() {
     const { percentage, setTotalTip, setPersonTip } = useContext(TipContext);
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        trigger,
-        getValues,
-    } = useForm();
+    const { handleSubmit } = useFormContext();
 
     const onSubmit = ({ bill, people }) => {
         const totalBill = (Number(percentage) / 100) * bill;
@@ -26,22 +18,14 @@ export default function Form() {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Input
-                label="Bill"
-                iconUrl={iconDollar}
-                name="bill"
-                register={register}
-                errors={errors}
-            />
+            <Input label="Bill" iconUrl={iconDollar} name="bill" />
 
-            <GridButton getValues={getValues} trigger={trigger} />
+            <GridButton />
 
             <Input
                 label="Number of People"
                 iconUrl={iconPerson}
                 name="people"
-                register={register}
-                errors={errors}
             />
         </form>
     );

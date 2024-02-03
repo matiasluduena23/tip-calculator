@@ -3,6 +3,7 @@ import Result from './components/Result';
 import styles from './style/app.module.css';
 import { TipContext } from './context/TipContext';
 import Form from './components/Form';
+import { useForm, FormProvider } from 'react-hook-form';
 
 function App() {
     const [percentage, setPercentage] = useState('');
@@ -10,11 +11,14 @@ function App() {
     const [totalTip, setTotalTip] = useState('');
     const [isActive, setIsActive] = useState('');
 
+    const methods = useForm();
+
     const handleReset = () => {
         setPercentage('');
         setTotalTip('');
         setPersonTip('');
         setIsActive('');
+        methods.reset();
     };
 
     return (
@@ -33,8 +37,10 @@ function App() {
             <main className={styles.main}>
                 <h1 className={styles.title}></h1>
                 <div className={styles.grid}>
-                    <Form />
-                    <Result handleReset={handleReset} />
+                    <FormProvider {...methods}>
+                        <Form />
+                        <Result handleReset={handleReset} />
+                    </FormProvider>
                 </div>
             </main>
         </TipContext.Provider>
